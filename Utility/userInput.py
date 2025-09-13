@@ -15,7 +15,7 @@ class UserInput:
 
         # Prompts until valid player is chosen
         while True:   
-            playerType = input('SELECT THE FOLLOWING PLAYER TYPE FOR PLAYER 2 ("Computer" or "Human")').lower()
+            playerType = input('SELECT THE FOLLOWING PLAYER TYPE FOR PLAYER 2 ("Computer" or "Human"): ').lower()
 
             # Check if the type is a valid type
             if playerType not in validTypes:
@@ -31,7 +31,7 @@ class UserInput:
 
             # Check if the value is an Integer
             try:
-                scoreLimit = int(input('SELECT A SCORE TO PLAY TO, (MUST BE AT LEAST 50)'))
+                scoreLimit = int(input('SELECT A SCORE TO PLAY TO, (MUST BE AT LEAST 50): '))
                 
                 # Check if the score is at least 50
                 if scoreLimit >= 50:
