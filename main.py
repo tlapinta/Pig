@@ -1,6 +1,7 @@
 # Import Statements
 from Utility.userInput import UserInput
 from GameLib.gameSettings import GameSettings
+from GameLib.state import gameSettings
 
 def main():
     # Initialize variables to store for game settings
