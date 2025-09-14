@@ -2,6 +2,8 @@
 # Will use the game messages class to create strings to be rendered
 import time
 import os
+import GameLib.state as state
+from GameLib.gameSettings import GameSettings
 from Utility.userInput import UserInput
 
 class RenderMessages:
@@ -18,8 +20,10 @@ class RenderMessages:
         if UserInput.getRenderRules():
             RenderMessages.renderRules()
         else:
-            UserInput.getFinalScore()
-            UserInput.getPlayer2Type()
+            finalScore = UserInput.getFinalScore()
+            player2Type = UserInput.getPlayer2Type()
+            state.gameSettings = GameSettings(finalScore, player2Type)
+
 
     # Displays the rules
     @staticmethod
