@@ -20,6 +20,7 @@ class RenderMessages:
         if UserInput.getRenderRules():
             RenderMessages.renderRules()
         else:
+            RenderMessages.__clearTerminal()
             finalScore = UserInput.getFinalScore()
             player2Type = UserInput.getPlayer2Type()
             state.gameSettings = GameSettings(finalScore, player2Type)
