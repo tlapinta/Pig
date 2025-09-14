@@ -12,6 +12,7 @@ class GameSettings:
     # Settings
     __finalScore = None
     __player2Type = None
+    __currentTurn = None
 
     # Class Init Method 
     def __init__(self, finalScore, player2Type):
@@ -21,6 +22,7 @@ class GameSettings:
         self.__player2TotalScore = 0
         self.__player1TurnScore = 0
         self.__player2TurnScore = 0
+        self.__currentTurn = 'Player 1'
 
     # Getter Methods
     def getPlayer1TotalScore(self) -> int:
@@ -41,6 +43,10 @@ class GameSettings:
     def getPlayer2Type(self) -> str:
         return self.__player2Type
     
+    def getCurrentTurn(self) -> str:
+        return self.__currentTurn
+    
+    # For debugging
     def getAllSettings(self) -> dict:
         return {k: v for k, v in self.__dict__.items()}
     
