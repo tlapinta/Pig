@@ -33,9 +33,7 @@ class UserInput:
 
             if goBack == 'y':
                 return True
-            else:
-                print('You must answer with the following: (Y)\n')
-
+            
     # Retrieves the type of Player 2 (Human/Computer)
     @staticmethod
     def getPlayer2Type() -> str:
