@@ -37,7 +37,15 @@ class RenderMessages:
                       'If a double is rolled, the total is added to the score and they must roll again\n' \
                       'If a single "1" is rolled, the turn ends and the turn total does not get added to the player\'s overall score\n' \
                       'If a double "1" is rolled, the turn ends and the player\'s score gets set back to "0"'
+        
+        # Print the rules
         RenderMessages.__printLineByLine(rulesString)
+
+        # Wait to see if the user wants to return or not
+        if UserInput.getReturnToMain():
+            # Render the Main Menu Screen
+            RenderMessages.__clearTerminal()
+            RenderMessages.renderWelcomeMessage()
 
     # Display effect for char by char text appearance
     @staticmethod

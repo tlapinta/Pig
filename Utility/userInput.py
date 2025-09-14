@@ -23,7 +23,19 @@ class UserInput:
                 return False
             else:
                 print('You must answer with the following: (Y/N)\n')
-                
+    
+    # Retrieves if the user wants to go back or not
+    def getReturnToMain() -> bool:
+
+        # Prompt until valid selection
+        while True:
+            goBack = input('Would you like to return to the main menu? (Y): ').lower()
+
+            if goBack == 'y':
+                return True
+            else:
+                print('You must answer with the following: (Y)\n')
+
     # Retrieves the type of Player 2 (Human/Computer)
     @staticmethod
     def getPlayer2Type() -> str:
