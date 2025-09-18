@@ -8,7 +8,7 @@ def main():
     # Begin Game Message
     RenderMessages.renderCurrentGameStatus()
 
-    # Create the player objects
+    # Set the starting game settings
     
 if __name__ == "__main__":
     main()

@@ -50,3 +50,24 @@ class GameSettings:
     def getAllSettings(self) -> dict:
         return {k: v for k, v in self.__dict__.items()}
     
+    # Setting methods
+    def setPlayer1TotalScore(self, score: int) -> None:
+        self.__player1TotalScore = score
+
+    def setPlayer2TotalScore(self, score: int) -> None:
+        self.__player2TotalScore = score
+    
+    def setPlayer1TurnScore(self, score: int) -> None:
+        self.__player1TurnScore = score
+
+    def setPlayer2TurnScore(self, score: int) -> None:
+        self.__player2TurnScore = score
+
+    def setFinalScore(self, score: int) -> None:
+        self.__finalScore = score
+    
+    def setPlayer2Type(self, score: int) -> None:
+        self.__player2Type = score
+    
+    def setCurrentTurn(self, turn: str) -> None:
+        self.__currentTurn = turn
