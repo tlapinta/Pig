@@ -2,7 +2,7 @@
 from Utility.renderMessages import RenderMessages
 
 def main():
-    # Initialize variables to store for game settings
+    # Start Game Message
     RenderMessages.renderWelcomeMessage()
     
 if __name__ == "__main__":

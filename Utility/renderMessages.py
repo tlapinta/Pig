@@ -20,11 +20,7 @@ class RenderMessages:
         if UserInput.getRenderRules():
             RenderMessages.renderRules()
         else:
-            RenderMessages.__clearTerminal()
-            finalScore = UserInput.getFinalScore()
-            player2Type = UserInput.getPlayer2Type()
-            state.gameSettings = GameSettings(finalScore, player2Type)
-
+            RenderMessages.renderGameStart()
 
     # Displays the rules
     @staticmethod
@@ -51,6 +47,26 @@ class RenderMessages:
             # Render the Main Menu Screen
             RenderMessages.__clearTerminal()
             RenderMessages.renderWelcomeMessage()
+
+    # Renders the start of the game
+    @staticmethod
+    def renderGameStart() -> None:
+
+        # Clear the terminal
+        RenderMessages.__clearTerminal()
+        
+        # Grab and store the game information
+        finalScore = UserInput.getFinalScore()
+        player2Type = UserInput.getPlayer2Type()
+        state.gameSettings = GameSettings(finalScore, player2Type)
+
+        # Clear the terminal
+        RenderMessages.__clearTerminal()
+
+        # Print the message
+        startGameMessage = 'Let the game commence!'
+        RenderMessages.__printCharByChar(startGameMessage)
+
 
     # Display effect for char by char text appearance
     @staticmethod
