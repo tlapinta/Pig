@@ -4,6 +4,7 @@ import time
 import os
 import GameLib.state as state
 from GameLib.gameSettings import GameSettings
+from GameLib.gameMessages import GameMessages
 from Utility.userInput import UserInput
 
 class RenderMessages:
@@ -54,7 +55,7 @@ class RenderMessages:
 
         # Clear the terminal
         RenderMessages.__clearTerminal()
-        
+
         # Grab and store the game information
         finalScore = UserInput.getFinalScore()
         player2Type = UserInput.getPlayer2Type()
@@ -66,7 +67,21 @@ class RenderMessages:
         # Print the message
         startGameMessage = 'Let the game commence!'
         RenderMessages.__printCharByChar(startGameMessage)
+        time.sleep(.5)
 
+    # Renders the current Game Situation
+    @staticmethod
+    def renderCurrentGameStatus() -> None:
+        # Clear the terminal
+        RenderMessages.__clearTerminal()
+
+        # Get the current game stats
+        totalScores = GameMessages.getTotalScores()
+        turnScores = GameMessages.getTurnScore()
+        fullMessage = totalScores + '\n' + turnScores + '\n'
+
+        # Print the message
+        print(fullMessage)
 
     # Display effect for char by char text appearance
     @staticmethod
