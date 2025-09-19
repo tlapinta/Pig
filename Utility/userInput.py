@@ -1,5 +1,6 @@
 # Retrieves the inputs the user provided in order to play the game
 # Assumes game is always a 2 player game with a real user of computer
+import GameLib.state as state
 
 class UserInput:
     __validTypes = ['computer', 'human']
@@ -67,3 +68,25 @@ class UserInput:
                     print('Score must be greater than 50, please try again\n')
             except ValueError:
                 print('Value selected is not a numerical value, please try again\n')
+
+    # Get if the current player would like to role
+    def getRole() -> bool:
+
+        # Prompt until valid answer is chose
+        while True:
+
+            # Get the current player 
+            currentTurn = state.gameSettings.getCurrentTurn()
+
+            # Ask the player if they want to roll
+            queryString = f'{currentTurn}, would you like to roll? (Y/N): '
+            role = input(queryString).lower()
+
+            # Determine if the player should role
+            if role == 'y':
+                return True
+            elif role == 'f':
+                return False
+            else:
+                print('Improper input given, please try again\n')
+

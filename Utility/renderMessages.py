@@ -2,12 +2,41 @@
 # Will use the game messages class to create strings to be rendered
 import time
 import os
+import sys
 import GameLib.state as state
 from GameLib.gameSettings import GameSettings
 from GameLib.gameMessages import GameMessages
 from Utility.userInput import UserInput
 
 class RenderMessages:
+
+    __cubeFrames = [
+        """
+███
+███
+███
+        """,
+        """
+ ██
+███
+ ██
+        """,
+        """
+  █
+ ███
+  █
+        """,
+        """
+ ██
+███
+ ██
+        """,
+        """
+███
+███
+███
+        """
+    ]
 
     # Display the Welcome Message to give the option to learn the rules
     @staticmethod
@@ -83,6 +112,32 @@ class RenderMessages:
         # Print the message
         print(fullMessage)
 
+    # Renders the Dice Roll
+
+    @staticmethod
+    def renderDiceRoll(spins: int = 5, delay: float = 0.1) -> None:
+        
+        frames = RenderMessages.__cubeFrames
+        frame_height = len(frames[0].splitlines())
+
+        # Print the first frame normally
+        print(frames[0])
+        time.sleep(delay)
+
+        for _ in range(spins):
+            for frame in frames[1:]:
+                # Move cursor up to overwrite previous frame
+                sys.stdout.write(f"\033[{frame_height}A")
+                sys.stdout.flush()
+                # Print the new frame
+                print(frame)
+                time.sleep(delay)
+    
+    # Gets the cubes for animation
+    @classmethod
+    def getCubes(cls) -> list[str]:
+        return cls.__cubeFrames
+    
     # Display effect for char by char text appearance
     @staticmethod
     def __printCharByChar(text: str, delay: float = .025) -> None:

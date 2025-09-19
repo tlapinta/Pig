@@ -1,5 +1,6 @@
 # main.py
 from Utility.renderMessages import RenderMessages
+from GameLib.gameEngine import GameEngine
 
 def main():
     # Main Menu Message
@@ -9,6 +10,7 @@ def main():
     RenderMessages.renderCurrentGameStatus()
 
     # Set the starting game settings
+    GameEngine.executeGame()
     
 if __name__ == "__main__":
     main()
