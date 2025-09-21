@@ -14,7 +14,7 @@ class GameEngine:
         RenderMessages.renderCurrentGameStatus()
 
         # Loop to continue game until max score reached (TODO)
-        while True:
+        while not GameEngine.__hasWonGame():
 
             # Determine if the user wants to role
             if UserInput.getRole():
@@ -166,3 +166,18 @@ class GameEngine:
                 turnScore = state.gameSettings.getPlayer2TurnScore()
                 newTotalScore = currentScore + turnScore
                 state.gameSettings.setPlayer2TotalScore(newTotalScore)
+
+    # Checks if the user won the game
+    def __hasWonGame() -> bool:
+        
+        # Grab the current turn
+        currentTurn = state.gameSettings.getCurrentTurn()
+
+        # Create vars to store
+        currentScoreP1 = state.gameSettings.getPlayer1TotalScore()
+        currentScoreP2 = state.gameSettings.getPlayer2TotalScore()
+        finalScore = state.gameSettings.getFinalScore()
+
+        
+        return (currentScoreP1 >= finalScore) or (currentScoreP2 >= finalScore)
+
