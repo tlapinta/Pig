@@ -16,7 +16,7 @@ class UserInput:
         
         # Prompt until valid selection
         while True:
-            seeRules = input('Would you like to see the rules? (Y/N): ').lower()
+            seeRules = input('Would you like to see the rules? (Y/N): ').lower().strip()
 
             if seeRules == 'y':
                 return True
@@ -30,7 +30,7 @@ class UserInput:
 
         # Prompt until valid selection
         while True:
-            goBack = input('Would you like to return to the main menu? (Y): ').lower()
+            goBack = input('Would you like to return to the main menu? (Y): ').lower().strip()
 
             if goBack == 'y':
                 return True
@@ -42,7 +42,7 @@ class UserInput:
 
         # Prompts until valid player is chosen
         while True:   
-            playerType = input('Select the following player type for player 2 ("Computer" or "Human"): ').lower()
+            playerType = input('Select the following player type for player 2 ("Computer" or "Human"): ').lower().strip()
 
             # Check if the type is a valid type
             if playerType not in validTypes:
@@ -59,7 +59,7 @@ class UserInput:
 
             # Check if the value is an Integer
             try:
-                scoreLimit = int(input('Select a score to play to, (must be at least 50): '))
+                scoreLimit = int(input('Select a score to play to, (must be at least 50): ').strip())
                 
                 # Check if the score is at least 50
                 if scoreLimit >= 50:
@@ -80,12 +80,12 @@ class UserInput:
 
             # Ask the player if they want to roll
             queryString = f'{currentTurn}, would you like to roll? (Y/N): '
-            role = input(queryString).lower()
+            role = input(queryString).lower().strip()
 
             # Determine if the player should role
             if role == 'y':
                 return True
-            elif role == 'f':
+            elif role == 'n':
                 return False
             else:
                 print('Improper input given, please try again\n')
