@@ -10,6 +10,9 @@ class GameEngine:
     @staticmethod
     def executeGame() -> None:
 
+        # Begin Game Message
+        RenderMessages.renderCurrentGameStatus()
+
         # Loop to continue game until max score reached (TODO)
         while True:
 

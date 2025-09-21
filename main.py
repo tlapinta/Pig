@@ -6,9 +6,6 @@ def main():
     # Main Menu Message
     RenderMessages.renderWelcomeMessage()
 
-    # Begin Game Message
-    RenderMessages.renderCurrentGameStatus()
-
     # Set the starting game settings
     GameEngine.executeGame()
     
