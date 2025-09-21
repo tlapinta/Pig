@@ -59,7 +59,7 @@ class GameEngine:
     # Determine if the user can roll again based on dice result
     @staticmethod
     def __canRollAgain(dice1: int, dice2: int) -> bool:
-        return (dice1 == 1) or (dice1 == 1)
+        return (dice1 != 1) and (dice2 != 1)
     
     # Determine if the score needs to be cleared
     @staticmethod
