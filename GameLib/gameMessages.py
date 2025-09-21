@@ -22,7 +22,7 @@ class GameMessages:
         
         # Grabs the stored values in the game settings
         currentTurn = state.gameSettings.getCurrentTurn()
-        turnScore = state.gameSettings.getPlayer1TurnScore() if currentTurn == 'Player 1' else state.gameSettings.getPlayer1TurnScore()
+        turnScore = state.gameSettings.getPlayer1TurnScore() if currentTurn == 'Player 1' else state.gameSettings.getPlayer2TurnScore()
 
         # Returns the string representation of the turn score
         return f'Turn Score For {currentTurn}: {turnScore}'

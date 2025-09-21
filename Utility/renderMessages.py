@@ -114,11 +114,14 @@ class RenderMessages:
         print(fullMessage)
 
     # Renders the current turn score
-    def renderTotalScore() -> None:
+    def renderTotalScore(newLine: bool) -> None:
         
         # Get the total score message
         turnScore = GameMessages.getTurnScore()
 
+        if newLine:
+            print()
+        
         # Print the message
         print(turnScore)
 

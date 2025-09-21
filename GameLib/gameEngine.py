@@ -29,11 +29,21 @@ class GameEngine:
                     GameEngine.__addToTurnScore(dice1, dice2)
 
                     # Render the message to update the turn score
-                    RenderMessages.renderTotalScore()
+                    RenderMessages.renderTotalScore(True)
                 elif (GameEngine.__scoreToBeCleared(dice1, dice2)):
+
+                    # Clear score and switch
                     GameEngine.__clearScoreAndSwitch()
+
+                    # Render a status update
+                    RenderMessages.renderCurrentGameStatus()
                 else:
+
+                    # End the turn and switch
                     GameEngine.__endTurnAndSwitch()
+
+                    # Render a status update
+                    RenderMessages.renderCurrentGameStatus()
             else: 
                 
                 # Add to the score
@@ -41,6 +51,9 @@ class GameEngine:
 
                 # Set the turn to the next turn
                 GameEngine.__switchTurn()
+
+                # Render a status update
+                RenderMessages.renderCurrentGameStatus()
 
     # Simulate the roll of the dice
     @staticmethod
@@ -136,12 +149,12 @@ class GameEngine:
 
         match currentTurn:
             case 'Player 1':
-                currentScore = state.gameSettings.getPlayer1TurnScore()
+                currentScore = state.gameSettings.getPlayer1TotalScore()
                 turnScore = state.gameSettings.getPlayer1TurnScore()
                 newTotalScore = currentScore + turnScore
-                state.gameSettings.setPlayer1TurnScore(newTotalScore)
+                state.gameSettings.setPlayer1TotalScore(newTotalScore)
             case 'Player 2':
-                currentScore = state.gameSettings.getPlayer2TurnScore()
+                currentScore = state.gameSettings.getPlayer2TotalScore()
                 turnScore = state.gameSettings.getPlayer2TurnScore()
                 newTotalScore = currentScore + turnScore
-                state.gameSettings.setPlayer2TurnScore(newTotalScore)
+                state.gameSettings.setPlayer2TotalScore(newTotalScore)
