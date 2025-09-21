@@ -38,7 +38,8 @@ class GameMessages:
         return f'{currentTurn} rolled a {dice1} and a {dice2}'
     
     # Creates the clear score message
-    def getClearScoreMessage():
+    @classmethod
+    def getClearScoreMessage(cls) -> str:
 
         # Grab the current turn
         currentTurn = state.gameSettings.getCurrentTurn()
@@ -47,7 +48,8 @@ class GameMessages:
         return f'{currentTurn} rolled 2 1s, their turn is over and total score is cleared'
     
     # Create the end turn message
-    def getEndTurnMessage():
+    @classmethod
+    def getEndTurnMessage(cls) -> str:
 
         # Grab the current turn
         currentTurn = state.gameSettings.getCurrentTurn()
@@ -55,3 +57,12 @@ class GameMessages:
         # Create the string and return
         return f'{currentTurn} rolled a 1, their turn is over and the turn score is not added to the total'
 
+    # Create the end turn message (for an end by choice)
+    @classmethod
+    def getChosenEndTurnMessage(cls) -> str:
+
+        # Grab the current turn
+        currentTurn = state.gameSettings.getCurrentTurn()
+
+        # Create the string and return
+        return f'{currentTurn} chose to end their turn, their total score is being added now'

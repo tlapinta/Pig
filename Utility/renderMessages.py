@@ -175,6 +175,8 @@ class RenderMessages:
         # Print the result char by char
         RenderMessages.__printCharByChar(text)
 
+        time.sleep(2)
+
     # Renders the end turn message telling the user their turn is over
     @staticmethod
     def renderEndTurnMessage() -> None:
@@ -184,7 +186,38 @@ class RenderMessages:
 
         # Print the result char by char
         RenderMessages.__printCharByChar(text)
-    
+
+        time.sleep(2)
+
+    # Render the switching side message
+    @staticmethod
+    def renderSwitchingSidesMessage() -> None:
+        # Clear the terminal
+        RenderMessages.__clearTerminal()
+
+        # Create the text
+        text = 'Switching sides...'
+
+        # Print the result char by char
+        RenderMessages.__printCharByChar(text)
+
+        time.sleep(3)
+
+    # Renders the chosen end turn messages
+    @staticmethod
+    def renderChosenEndTurnMessage() -> None:
+
+        # Clear the terminal
+        RenderMessages.__clearTerminal()
+
+        # Get the end turn message
+        text = GameMessages.getChosenEndTurnMessage()
+
+        # Print the result char by char
+        RenderMessages.__printCharByChar(text)
+
+        time.sleep(3)
+
     # Gets the cubes for animation
     @classmethod
     def getCubes(cls) -> list[str]:

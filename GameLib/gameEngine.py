@@ -45,7 +45,9 @@ class GameEngine:
                     # Render a status update
                     RenderMessages.renderCurrentGameStatus()
             else: 
-                
+                # Render the chosen end turn message
+                RenderMessages.renderChosenEndTurnMessage()
+
                 # Add to the score
                 GameEngine.__addToTotalScore()
 
@@ -99,6 +101,9 @@ class GameEngine:
 
         GameEngine.__switchTurn()
 
+        # Render the switching sides message
+        RenderMessages.renderSwitchingSidesMessage()
+
     # Clear the turn and switch
     def __endTurnAndSwitch() -> None:
 
@@ -107,6 +112,9 @@ class GameEngine:
 
         # Switch the turn
         GameEngine.__switchTurn()
+
+        # Render the switching sides message
+        RenderMessages.renderSwitchingSidesMessage()
     
     # Method to clear the turn score and switch the turn
     def __switchTurn() -> None:
