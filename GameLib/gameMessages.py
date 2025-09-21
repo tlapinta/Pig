@@ -36,5 +36,13 @@ class GameMessages:
 
         # Create the string and return
         return f'{currentTurn} rolled a {dice1} and a {dice2}'
+    
+    # Creates the clear score message
+    def getClearScoreMessage():
 
+        # Grab the current turn
+        currentTurn = state.gameSettings.getCurrentTurn()
+
+        # Create the string and return
+        return f'{currentTurn} rolled 2 1s, their turn is over and total score is cleared'
 

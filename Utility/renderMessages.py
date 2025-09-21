@@ -151,6 +151,16 @@ class RenderMessages:
 
         # Print the result char by char
         RenderMessages.__printCharByChar(text)
+
+    # Renders the message telling the user their turn ended and score is to be cleared
+    @staticmethod
+    def renderClearScoreMessage() -> None:
+
+        # Get the clear score message
+        text = GameMessages.getClearScoreMessage()
+
+        # Print the result char by char
+        RenderMessages.__printCharByChar(text)
     
     # Gets the cubes for animation
     @classmethod
