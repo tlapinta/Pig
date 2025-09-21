@@ -45,4 +45,13 @@ class GameMessages:
 
         # Create the string and return
         return f'{currentTurn} rolled 2 1s, their turn is over and total score is cleared'
+    
+    # Create the end turn message
+    def getEndTurnMessage():
+
+        # Grab the current turn
+        currentTurn = state.gameSettings.getCurrentTurn()
+
+        # Create the string and return
+        return f'{currentTurn} rolled a 1, their turn is over and the turn score is not added to the total'
 

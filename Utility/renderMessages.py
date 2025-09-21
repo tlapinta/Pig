@@ -161,6 +161,16 @@ class RenderMessages:
 
         # Print the result char by char
         RenderMessages.__printCharByChar(text)
+
+    # Renders the end turn message telling the user their turn is over
+    @staticmethod
+    def renderEndTurnMessage() -> None:
+
+        # Get the end turn message
+        text = GameMessages.getEndTurnMessage()
+
+        # Print the result char by char
+        RenderMessages.__printCharByChar(text)
     
     # Gets the cubes for animation
     @classmethod

@@ -25,7 +25,7 @@ class GameEngine:
                 elif (GameEngine.__scoreToBeCleared(dice1, dice2)):
                     GameEngine.__clearScoreAndSwitch()
                 else:
-                    continue
+                    GameEngine.__endTurnAndSwitch()
             else: 
                 
                 # Set the turn to the next turn
@@ -34,13 +34,18 @@ class GameEngine:
     # Simulate the roll of the dice
     @staticmethod
     def __rollDice() -> tuple[int, int]:
+
+        # Render the dice roll visual
         RenderMessages.renderDiceRoll()
         
+        # Grab random dice values
         dice1 = random.randint(1,6)
         dice2 = random.randint(1,6)
 
+        # Print the dice roll result
         RenderMessages.renderDiceResult(dice1, dice2)
 
+        # Return the values
         return dice1, dice2
     
     # Determine if the user can roll again based on dice result
@@ -70,6 +75,16 @@ class GameEngine:
 
         GameEngine.__switchTurn()
 
+    # Clear the turn and switch
+    def __endTurnAndSwitch() -> None:
+
+        # Render the message
+        RenderMessages.renderEndTurnMessage()
+
+        # Switch the turn
+        GameEngine.__switchTurn()
+    
+    # Method to clear the turn score and switch the turn
     def __switchTurn() -> None:
 
         # Get the current player to determine which score to clear
