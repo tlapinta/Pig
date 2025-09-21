@@ -33,6 +33,9 @@ class GameEngine:
                     GameEngine.__endTurnAndSwitch()
             else: 
                 
+                # Add to the score
+                GameEngine.__addToTotalScore()
+
                 # Set the turn to the next turn
                 GameEngine.__switchTurn()
 
@@ -121,3 +124,21 @@ class GameEngine:
                 currentScore = state.gameSettings.getPlayer2TurnScore()
                 newTurnScore = currentScore + totalRoll
                 state.gameSettings.setPlayer2TurnScore(newTurnScore)
+    
+    # Adds the turn score to the total
+    def __addToTotalScore() -> None:
+
+        # Update the turn score
+        currentTurn = state.gameSettings.getCurrentTurn()
+
+        match currentTurn:
+            case 'Player 1':
+                currentScore = state.gameSettings.getPlayer1TurnScore()
+                turnScore = state.gameSettings.getPlayer1TurnScore()
+                newTotalScore = currentScore + turnScore
+                state.gameSettings.setPlayer1TurnScore(newTotalScore)
+            case 'Player 2':
+                currentScore = state.gameSettings.getPlayer2TurnScore()
+                turnScore = state.gameSettings.getPlayer2TurnScore()
+                newTotalScore = currentScore + turnScore
+                state.gameSettings.setPlayer2TurnScore(newTotalScore)
