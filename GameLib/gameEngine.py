@@ -21,7 +21,12 @@ class GameEngine:
 
                 # Determine which the outcome should be
                 if (GameEngine.__canRollAgain(dice1, dice2)):
-                    continue
+
+                    # Add to the turn
+                    GameEngine.__addToTurnScore(dice1, dice2)
+
+                    # Render the message to update the turn score
+                    RenderMessages.renderTotalScore()
                 elif (GameEngine.__scoreToBeCleared(dice1, dice2)):
                     GameEngine.__clearScoreAndSwitch()
                 else:
@@ -97,3 +102,22 @@ class GameEngine:
             case 'Player 2':
                 state.gameSettings.setPlayer2TurnScore(0)
                 state.gameSettings.setCurrentTurn('Player 1')
+
+    # Adds the resulting roll to the turn score
+    def __addToTurnScore(dice1: int, dice2: int) -> None:
+
+        # Add the dice rolls together
+        totalRoll = dice1 + dice2
+
+        # Update the turn score
+        currentTurn = state.gameSettings.getCurrentTurn()
+
+        match currentTurn:
+            case 'Player 1':
+                currentScore = state.gameSettings.getPlayer1TurnScore()
+                newTurnScore = currentScore + totalRoll
+                state.gameSettings.setPlayer1TurnScore(newTurnScore)
+            case 'Player 2':
+                currentScore = state.gameSettings.getPlayer2TurnScore()
+                newTurnScore = currentScore + totalRoll
+                state.gameSettings.setPlayer2TurnScore(newTurnScore)

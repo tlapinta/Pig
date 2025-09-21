@@ -101,6 +101,7 @@ class RenderMessages:
     # Renders the current Game Situation
     @staticmethod
     def renderCurrentGameStatus() -> None:
+
         # Clear the terminal
         RenderMessages.__clearTerminal()
 
@@ -111,6 +112,15 @@ class RenderMessages:
 
         # Print the message
         print(fullMessage)
+
+    # Renders the current turn score
+    def renderTotalScore() -> None:
+        
+        # Get the total score message
+        turnScore = GameMessages.getTurnScore()
+
+        # Print the message
+        print(turnScore)
 
     # Renders the Dice Roll
     @staticmethod
