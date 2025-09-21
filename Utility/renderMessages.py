@@ -113,7 +113,6 @@ class RenderMessages:
         print(fullMessage)
 
     # Renders the Dice Roll
-
     @staticmethod
     def renderDiceRoll(spins: int = 5, delay: float = 0.1) -> None:
         
@@ -132,6 +131,26 @@ class RenderMessages:
                 # Print the new frame
                 print(frame)
                 time.sleep(delay)
+        
+        # Clear the cube after animation
+        sys.stdout.write(f"\033[{frame_height}A") 
+        sys.stdout.flush()
+
+        for _ in range(frame_height):
+            print(" " * 40) 
+            
+        sys.stdout.write(f"\033[{frame_height}A")
+        sys.stdout.flush()
+
+    # Renders the resulting dice roll to the user
+    @staticmethod
+    def renderDiceResult(dice1: int, dice2: int) -> None:
+
+        # Grab the test for the dice roll
+        text = GameMessages.getDiceRoll(dice1, dice2)
+
+        # Print the result char by char
+        RenderMessages.__printCharByChar(text)
     
     # Gets the cubes for animation
     @classmethod

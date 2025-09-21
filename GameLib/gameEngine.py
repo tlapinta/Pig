@@ -14,7 +14,7 @@ class GameEngine:
         if UserInput.getRole():
 
             # Execute Roll
-            GameEngine.__rollDice()
+            dice1, dice2 = GameEngine.__rollDice()
         else: 
             
             # Set the turn to the next turn
@@ -25,5 +25,7 @@ class GameEngine:
         
         dice1 = random.randint(1,6)
         dice2 = random.randint(1,6)
+
+        RenderMessages.renderDiceResult(dice1, dice2)
 
         return dice1, dice2
